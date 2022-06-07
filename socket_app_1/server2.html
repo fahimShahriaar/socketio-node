@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Namespace Broadcasting</title>
+  </head>
+  <body>
+    <h3>Namespace broadcast</h3>
+    <p>Socket Message: <span id="socket-msg"></span></p>
+
+    <script src="socket.io/socket.io.js"></script>
+    <script>
+      const socket = io("/sell");
+      socket.on("myEvent", (message) => {
+        console.log(message);
+        document.getElementById("socket-msg").innerHTML = message;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Broadcasting</title>
+  </head>
+  <body>
+    <h3>Socket</h3>
+
+    <script src="socket.io/socket.io.js"></script>
+    <script>
+      const socket = io("/sell");
+
+      socket.on("myEvent", (message) => {
+        console.log(message);
+        document.write(message);
+      });
+
+      // socket.on("broadcastEvent", function (message) {
+      //   console.log(message);
+      //   document.write(message);
+      // });
+    </script>
+  </body>
+</html>
