@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Socket Rooms</title>
+  </head>
+  <body>
+    <h3>Socket Rooms</h3>
+    <p>Socket Connection... <span id="socket-msg"></span></p>
+    <p>Socket Connection... <span id="socket-msg2"></span></p>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+      socket.on("sleep", (message) => {
+        console.log(message);
+        document.getElementById("socket-msg").innerHTML = message;
+      });
+
+      socket.on("cooking", (message) => {
+        console.log(message);
+        document.getElementById("socket-msg2").innerHTML = message;
+      });
+    </script>
+  </body>
+</html>
